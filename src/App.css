@@ -1,38 +1,294 @@
-.App {
-  text-align: center;
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f0f2f5;
+  border-bottom: 1px solid #ddd;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header.hidden {
+  transform: translateY(-100%);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.header.visible {
+  transform: translateY(0);
+}
+
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+}
+
+.desktop-menu {
+  display: flex;
+  align-items: center;
+}
+
+.desktop-menu ul {
+  list-style: none;
+  margin: 0;
+  margin-right: 10px;
+  padding: 0;
+  display: flex;  gap: 1.5rem;
+
+}
+
+.desktop-menu li {
+  margin: 0 1rem;
+}
+
+.desktop-menu a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 600; /* Semi-bold */
+  transition: color 0.3s;
+}
+
+.desktop-menu a:hover {
+  color: #007bff; /* Hover color */
+}
+
+.desktop-menu .active {
+  color: #007bff; /* Active link color */
+}
+
+.desktop-menu .inactive {
+  color:black; /* Inactive link color */
+}
+
+a {
+  position: relative;
+  cursor: pointer;
+  color: #000;
+  transition: color 0.5s;
+}
+
+a::after {
+  position: absolute;
+  content: "";
+  inset: 0;
+  background: #f0f2f5;
+  scale: 1 0;
+  z-index: -1;
+  transition: scale 0.5s;
+}
+
+a:hover {
+  color: #000;
+}
+
+a:hover::after {
+  scale: 1 1;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+.menu-icon {
+  display: none;
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+  .desktop-menu {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: block;
+    background-color: #f0f2f5;
+  }
+
+  .menu-icon {
+    display: block;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header .logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.header .logo {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.header .logo-text {
+  font-size: 1.5rem;
+  margin-left: 1rem;
+  font-weight: 600; /* Semi-bold */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.drawer-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.drawer-logo-text {
+  margin-top: 0.5rem;
+  text-align: center;
+  font-weight: 600; /* Semi-bold */
+}
+
+.rn-slider-area {
+  background-color: #f0f2f5;
+  padding: 50px 0;
+  width: 100%;
+  height: 90vh;
+  align-items: center;
+}
+
+.thumbnail {
+  text-align: center;
+}
+
+.profile-pic {
+  border-radius: 20px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.text {
+  padding: 20px;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-size: 36px;
+  color: #111;
+  font-weight: bold;
+}
+
+.highlight {
+  color: #ff4b5c;
+}
+
+.header-caption {
+  font-size: 24px;
+  color: #ff4b5c;
+}
+
+.description {
+  font-size: 16px;
+  color: #555;
+  margin-top: 20px;
+}
+
+.cd-words-wrapper {
+  position: relative;
+  display: inline-block;
+  height: 1em; /* Adjust as needed to fit your text */
+  overflow: hidden;
+  color: #333;
+}
+
+.cd-words-wrapper b {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  white-space: nowrap;
+}
+
+.cd-words-wrapper .is-visible {
+  opacity: 1;
+  position: relative;
+}
+
+.cd-words-wrapper .is-hidden {
+  opacity: 0;
+  position: absolute;
+}
+
+.background-color {
+  background-color: #f0f2f5;
+}
+.main-content {
+  padding-top: 80px; /* Adjust this value based on the height of your header */
+}
+/* Resume */
+.tabs {
+  border-radius: 8px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 16px 0;
+  cursor: pointer;
+  transition: all 0.5s;
+  font-weight: bold;
+}
+.tab:hover {
+  background-color: white;
+  border-radius: 12px 12px 12px 12px;
+  color: blue;
+  width: 33%;
+  height: 80px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); /* Optional: Adding shadow effect on hover */
+}
+
+.tab.Mui-selected {
+  color: blue;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); /* Optional: Adding shadow effect for selected tab */
+}
+.card {
+  background-color: #f0f2f5;
+  border-radius: 8px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
+}
+
+.card-content {
+  background-color: #f0f2f5;
+}
+@media (max-width: 768px) {
+  .tabs {
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+    width: 95%;
   }
-  to {
-    transform: rotate(360deg);
+  .tab {
+    width: 100%;
+    padding: 16px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  .tab:hover {
+    width: 100%;
+    height: auto;
   }
 }
