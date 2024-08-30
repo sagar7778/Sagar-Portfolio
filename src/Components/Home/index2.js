@@ -13,10 +13,7 @@ const AlternatingText = () => {
   }, [words.length]);
 
   return (
-    <div
-      className="cd-words-wrapper"
-      style={{ fontWeight: "normal", color: "white" }}
-    >
+    <div className="cd-words-wrapper" style={{ fontWeight: "normal",color:"white" }}>
       {words.map((word, index) => (
         <b
           key={index}

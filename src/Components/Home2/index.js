@@ -50,7 +50,7 @@ const Home = () => {
             alignItems="center"
             justifyContent="flex-start"
             style={{
-              height: "80vh",
+              height: "80vh", 
               width: "100%",
               textAlign: "left",
               margin: "0 auto",

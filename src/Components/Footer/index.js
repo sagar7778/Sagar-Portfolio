@@ -7,7 +7,7 @@ import {
   Link as MuiLink,
   IconButton,
 } from "@mui/material";
-import { LinkedIn, Facebook, Instagram } from "@mui/icons-material";
+import { LinkedIn , Facebook, Instagram } from "@mui/icons-material";
 import { Link as ScrollLink, scroller } from "react-scroll";
 
 const Footer = (link) => {

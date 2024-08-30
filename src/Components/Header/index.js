@@ -50,14 +50,15 @@ const Header = () => {
     }
     setLastScrollY(window.scrollY);
   }, [lastScrollY]);
-
+  
   useEffect(() => {
     window.addEventListener("scroll", controlHeader);
-
+  
     return () => {
       window.removeEventListener("scroll", controlHeader);
     };
   }, [controlHeader]);
+  
 
   const drawerContent = (
     <Box
