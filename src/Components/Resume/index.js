@@ -15,21 +15,21 @@ const contentData = {
     {
       title: "Education Quality",
       subTitle: "Silver Oak University",
-      subTitle1: "University of dvi (2022 - 2026)",
+      subTitle1: "University of dvi (2021 - 2024)",
       description:
         "The education at Silver Oak University is designed to be highly interactive and engaging. With a focus on hands-on learning and real-world applications, the curriculum ensures that students not only gain theoretical knowledge but also practical skills. The program emphasizes a comprehensive approach, integrating various teaching methods to enhance understanding and retention.",
     },
     {
       title: "Job Experience",
-      subTitle: "Internship",
+      subTitle: "Frontend Developer",
       subTitle1: "Quickint Solutions ",
       description:
         "During the internship at Quickint Solutions, I gained valuable experience and practical skills in a dynamic work environment. My responsibilities included hands-on projects, collaboration with team members, and applying theoretical knowledge to real-world scenarios. This experience allowed me to develop problem-solving skills, enhance my technical abilities, and gain insight into the professional world.",
     },
     {
       title: "",
-      subTitle: "11 & 12 Science",
-      subTitle1: "Science of dvi (2020 - 2022)",
+      subTitle: "Diploma",
+      subTitle1: "Information Of Technology",
       description:
         " Explore advanced concepts in physics, chemistry, and Mathematics through interactive lessons and practical experiments. This educational journey is designed to deepen your understanding of scientific principles and prepare you for higher education and future careers in science. Engage with hands-on activities and real-world applications to solidify your knowledge and critical thinking skills.",
     },

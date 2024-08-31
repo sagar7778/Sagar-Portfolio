@@ -11,7 +11,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import "../../../src/App.css";
-import logo from "../../assets/Logo/Dhruvil-modified.png";
+import logo from "../../assets/Logo/sagar-image.jpg";
 import { Facebook, Instagram, LinkedIn } from "../Home/index4";
 import { navLinksdata } from "../../Constant/index";
 import { scroller } from "react-scroll";
@@ -50,15 +50,14 @@ const Header = () => {
     }
     setLastScrollY(window.scrollY);
   }, [lastScrollY]);
-  
+
   useEffect(() => {
     window.addEventListener("scroll", controlHeader);
-  
+
     return () => {
       window.removeEventListener("scroll", controlHeader);
     };
   }, [controlHeader]);
-  
 
   const drawerContent = (
     <Box
@@ -79,7 +78,7 @@ const Header = () => {
         }}
       >
         <Typography variant="h6" sx={{ display: "flex", alignItems: "center" }}>
-          <img src={logo} alt="Dhruvil" width={50} height={50} />
+          <img src={logo} alt="Sagar" width={50} height={50} />
         </Typography>
         <IconButton
           onClick={toggleDrawer(false)}
@@ -118,7 +117,7 @@ const Header = () => {
       <header className={`header ${showHeader ? "visible" : "hidden"}`}>
         <div className="logo-container">
           <img src={logo} alt="Dhruvil" width={50} height={50} />
-          <div className="logo-text">Dhruvil</div>
+          <div className="logo-text">Sagar</div>
         </div>
         <nav className="menu">
           <div className="desktop-menu">

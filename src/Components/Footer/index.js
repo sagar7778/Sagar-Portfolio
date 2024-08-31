@@ -7,7 +7,7 @@ import {
   Link as MuiLink,
   IconButton,
 } from "@mui/material";
-import { LinkedIn , Facebook, Instagram } from "@mui/icons-material";
+import { LinkedIn, Facebook, Instagram } from "@mui/icons-material";
 import { Link as ScrollLink, scroller } from "react-scroll";
 
 const Footer = (link) => {
@@ -50,12 +50,12 @@ const Footer = (link) => {
           <Grid container spacing={4} sx={{ justifyContent: "center" }}>
             <Grid item xs={12} md={3}>
               <Typography variant="h6" color="#fff">
-                Dhruvil Padshala
+                Sagar koshti
               </Typography>
               <Typography variant="body2" sx={{ mt: 1, color: "#aaaeaf" }}>
-                +91 7016881034
+                +91 9409307167
                 <br />
-                padshaladhruvil5@gmail.com
+                koshtisagar7778@gmail.com
               </Typography>
             </Grid>
             <Grid item xs={12} md={3}>

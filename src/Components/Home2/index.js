@@ -17,7 +17,7 @@ const fadeIn = keyframes`
 
 const Home = () => {
   useEffect(() => {
-    document.title = "Dhruvil";
+    document.title = "Sagar";
   }, []);
   const scrollToSection = (section) => {
     scroller.scrollTo(section, {
@@ -50,7 +50,7 @@ const Home = () => {
             alignItems="center"
             justifyContent="flex-start"
             style={{
-              height: "80vh", 
+              height: "80vh",
               width: "100%",
               textAlign: "left",
               margin: "0 auto",
@@ -73,7 +73,7 @@ const Home = () => {
                   padding: { xs: "0 10px", md: "0" },
                 }}
               >
-                Hi I'm Dhruvil
+                Hi I'm Sagar
                 <br />
                 a <AlternatingText />
               </Typography>
