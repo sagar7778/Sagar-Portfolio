@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Grid, Typography, Avatar } from "@mui/material";
-import { Facebook, Instagram, LinkedIn } from "./index4";
+import { Whatsapp, Instagram, LinkedIn } from "./index4";
 import JS from "../../assets/Home/JS.png";
 import TS from "../../assets/Home/TS.png";
 import Node from "../../assets/Home/Node.png";
@@ -18,7 +18,7 @@ const SocialsSection = () => {
               justifyContent="center"
               sx={{ mt: { xs: 0, md: 2 } }}
             >
-              <Facebook />
+              <Whatsapp />
               <Instagram />
               <LinkedIn />
             </Box>

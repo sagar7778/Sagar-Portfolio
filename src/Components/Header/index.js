@@ -12,7 +12,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import "../../../src/App.css";
 import logo from "../../assets/Logo/sagar-image.jpg";
-import { Facebook, Instagram, LinkedIn } from "../Home/index4";
+import { Whatsapp, Instagram, LinkedIn } from "../Home/index4";
 import { navLinksdata } from "../../Constant/index";
 import { scroller } from "react-scroll";
 
@@ -105,7 +105,7 @@ const Header = () => {
         alignItems="center"
         sx={{ mt: { xs: 0, md: 2 } }}
       >
-        <Facebook sx={{ mx: 1 }} />
+        <Whatsapp sx={{ mx: 1 }} />
         <Instagram sx={{ mx: 1 }} />
         <LinkedIn sx={{ mx: 1 }} />
       </Box>

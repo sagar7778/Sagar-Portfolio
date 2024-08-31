@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Avatar from "@mui/material/Avatar";
-import FacebookIcon from "@mui/icons-material/Facebook";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
-const Facebook = () => {
+const Whatsapp = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [iconColor, setIconColor] = useState("primary");
 
@@ -17,7 +17,11 @@ const Facebook = () => {
   }, [isHovered]);
 
   return (
-    <a href="https://www.facebook.com/dhruv.pansala?mibextid=ZbWKwL">
+    <a
+      href="https://wa.me/+919409307167"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <Avatar
         sx={{
           m: 1,
@@ -36,7 +40,7 @@ const Facebook = () => {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <FacebookIcon color={iconColor} />
+        <WhatsAppIcon color={iconColor} />
       </Avatar>
     </a>
   );
@@ -55,7 +59,10 @@ const Instagram = () => {
   }, [isHovered]);
 
   return (
-    <a href="https://www.instagram.com/_unique_boy_211?igsh=MTJyY2UyaWVhdng5bw==">
+    <a
+      href="https://www.instagram.com/http._.sagar?igsh=M3VieWRub2p1cWM="
+      target="_blank"
+    >
       <Avatar
         sx={{
           m: 1,
@@ -93,7 +100,10 @@ const LinkedIn = () => {
   }, [isHovered]);
 
   return (
-    <a href="https://www.linkedin.com/in/dhruvil-padshala-032630270?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">
+    <a
+      href="https://www.linkedin.com/in/sagar-koshti-1b6957219/"
+      target="_blank"
+    >
       <Avatar
         sx={{
           m: 1,
@@ -118,4 +128,4 @@ const LinkedIn = () => {
   );
 };
 
-export { Facebook, Instagram, LinkedIn };
+export { Whatsapp, Instagram, LinkedIn };

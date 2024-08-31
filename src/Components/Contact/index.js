@@ -1,7 +1,15 @@
 import React from "react";
-import { Box, Grid, Typography, Avatar } from "@mui/material";
+import {
+  Box,
+  Container,
+  Grid,
+  Typography,
+  Link as MuiLink,
+  IconButton,
+  Avatar,
+} from "@mui/material";
 import Profile from "../../assets/Home/sagar-image.jpg";
-import { Facebook, Instagram, LinkedIn } from "../Home/index4";
+import { Whatsapp, Instagram, LinkedIn } from "../Home/index4";
 import ContactForm from "./index2";
 
 const Contact = () => {
@@ -65,9 +73,29 @@ const Contact = () => {
                   I am available for freelance work. Connect with me via and
                   call in to my account.
                 </Typography>
-                <Typography variant="body2">Phone: +91 9409307167</Typography>
                 <Typography variant="body2">
-                  Email: koshtisagar7778@gmail.com
+                  Phone:{" "}
+                  <MuiLink
+                    target="_blank"
+                    href="tel:+919409307167"
+                    color="inherit"
+                    underline="none"
+                    sx={{ "&:hover": { color: "blue" } }}
+                  >
+                    +91 9409307167
+                  </MuiLink>
+                </Typography>
+                <Typography variant="body2">
+                  Email:{" "}
+                  <MuiLink
+                    target="_blank"
+                    href="mailto:koshtisagar7778@gmail.com"
+                    color="inherit"
+                    underline="none"
+                    sx={{ "&:hover": { color: "blue" } }}
+                  >
+                    koshtisagar7778@gmail.com
+                  </MuiLink>
                 </Typography>
                 <Box className="socials" textAlign="center" sx={{ mt: 2 }}>
                   <Typography variant="body1">FIND WITH ME</Typography>
@@ -77,7 +105,7 @@ const Contact = () => {
                     justifyContent="center"
                     sx={{ mt: { xs: 0, md: 2 }, mb: { xs: 2, md: 2 } }}
                   >
-                    <Facebook />
+                    <Whatsapp />
                     <Instagram />
                     <LinkedIn />
                   </Box>

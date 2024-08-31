@@ -6,17 +6,19 @@ import {
   Typography,
   Link as MuiLink,
   IconButton,
+  Divider,
 } from "@mui/material";
-import { LinkedIn, Facebook, Instagram } from "@mui/icons-material";
-import { Link as ScrollLink, scroller } from "react-scroll";
+import { LinkedIn, Instagram, WhatsApp } from "@mui/icons-material";
+import { Link as ScrollLink } from "react-scroll";
 
-const Footer = (link) => {
+const Footer = () => {
   const [activeLink, setActiveLink] = useState("");
 
   const linkStyle = {
-    color: activeLink === `#${link}` ? "blue" : "#aaaeaf",
+    color: activeLink === `#${activeLink}` ? "blue" : "#aaaeaf",
     textDecoration: "none",
     cursor: "pointer",
+    transition: "color 0.3s ease",
   };
 
   const handleHover = (event) => {
@@ -28,11 +30,6 @@ const Footer = (link) => {
   };
 
   const handleLinkClick = (link) => {
-    scroller.scrollTo(link, {
-      duration: 800,
-      delay: 0,
-      smooth: "easeInOutQuart",
-    });
     setActiveLink(`#${link}`);
   };
 
@@ -42,25 +39,46 @@ const Footer = (link) => {
         sx={{
           backgroundColor: "#000",
           color: "#fff",
-          py: 5,
+          py: 6,
+          px: 2,
           textAlign: "center",
         }}
       >
-        <Container maxWidth={false} sx={{ px: 0 }}>
-          <Grid container spacing={4} sx={{ justifyContent: "center" }}>
-            <Grid item xs={12} md={3}>
+        <Container maxWidth="lg">
+          <Grid container spacing={4} justifyContent="center">
+            <Grid item xs={12} md={4}>
               <Typography variant="h6" color="#fff">
-                Sagar koshti
+                Sagar Koshti
               </Typography>
-              <Typography variant="body2" sx={{ mt: 1, color: "#aaaeaf" }}>
-                +91 9409307167
+              <Typography variant="body2" sx={{ mt: 2, color: "#aaaeaf" }}>
+                <MuiLink
+                  href="tel:+919409307167"
+                  color="inherit"
+                  underline="none"
+                  sx={{
+                    "&:hover": { color: "blue" },
+                  }}
+                >
+                  +91 9409307167
+                </MuiLink>
                 <br />
-                koshtisagar7778@gmail.com
+                <MuiLink
+                  href="mailto:koshtisagar7778@gmail.com"
+                  color="inherit"
+                  underline="none"
+                  sx={{
+                    "&:hover": { color: "blue" },
+                  }}
+                >
+                  koshtisagar7778@gmail.com
+                </MuiLink>
               </Typography>
             </Grid>
-            <Grid item xs={12} md={3}>
+
+            <Grid item xs={12} md={4}>
               <Typography variant="h6">Services</Typography>
-              <Typography variant="body2" sx={{ mt: 1, color: "#aaaeaf" }}>
+              <Divider sx={{ my: 1, borderColor: "#fff" }} />
+              <Typography variant="body2" sx={{ mt: 2, color: "#aaaeaf" }}>
                 Web Development
                 <br />
                 UI/UX Design
@@ -74,127 +92,75 @@ const Footer = (link) => {
                 Ad Promotion
               </Typography>
             </Grid>
-            <Grid item xs={12} md={3}>
-              <Typography variant="h6">Links</Typography>
-              <Typography variant="body2" sx={{ mt: 1 }}>
-                <ScrollLink
-                  to="home"
-                  spy={true}
-                  smooth={true}
-                  duration={800}
-                  style={linkStyle}
-                  onMouseEnter={handleHover}
-                  onMouseLeave={handleLeave}
-                  onClick={() => handleLinkClick("home")}
-                >
-                  Home
-                </ScrollLink>
-                <br />
-                <ScrollLink
-                  to="features"
-                  spy={true}
-                  smooth={true}
-                  duration={800}
-                  style={linkStyle}
-                  onMouseEnter={handleHover}
-                  onMouseLeave={handleLeave}
-                  onClick={() => handleLinkClick("features")}
-                >
-                  Features
-                </ScrollLink>
-                <br />
-                <ScrollLink
-                  to="portfolio"
-                  spy={true}
-                  smooth={true}
-                  duration={800}
-                  style={linkStyle}
-                  onMouseEnter={handleHover}
-                  onMouseLeave={handleLeave}
-                  onClick={() => handleLinkClick("portfolio")}
-                >
-                  Portfolio
-                </ScrollLink>
-                <br />
-                <ScrollLink
-                  to="resume"
-                  spy={true}
-                  smooth={true}
-                  duration={800}
-                  style={linkStyle}
-                  onMouseEnter={handleHover}
-                  onMouseLeave={handleLeave}
-                  onClick={() => handleLinkClick("resume")}
-                >
-                  Resume
-                </ScrollLink>
-                <br />
-                <ScrollLink
-                  to="blog"
-                  spy={true}
-                  smooth={true}
-                  duration={800}
-                  style={linkStyle}
-                  onMouseEnter={handleHover}
-                  onMouseLeave={handleLeave}
-                  onClick={() => handleLinkClick("blog")}
-                >
-                  Blog
-                </ScrollLink>
-                <br />
-                <ScrollLink
-                  to="contact"
-                  spy={true}
-                  smooth={true}
-                  duration={800}
-                  style={linkStyle}
-                  onMouseEnter={handleHover}
-                  onMouseLeave={handleLeave}
-                  onClick={() => handleLinkClick("contact")}
-                >
-                  Contact
-                </ScrollLink>
+
+            <Grid item xs={12} md={4}>
+              <Typography variant="h6">Quick Links</Typography>
+              <Divider sx={{ my: 1, borderColor: "#fff" }} />
+              <Typography variant="body2" sx={{ mt: 2 }}>
+                {[
+                  "home",
+                  "features",
+                  "portfolio",
+                  "resume",
+                  "blog",
+                  "contact",
+                ].map((link) => (
+                  <ScrollLink
+                    key={link}
+                    to={link}
+                    spy={true}
+                    smooth={true}
+                    duration={800}
+                    style={linkStyle}
+                    onMouseEnter={handleHover}
+                    onMouseLeave={handleLeave}
+                    onClick={() => handleLinkClick(link)}
+                  >
+                    {link.charAt(0).toUpperCase() + link.slice(1)}
+                    <br />
+                  </ScrollLink>
+                ))}
               </Typography>
             </Grid>
           </Grid>
-          <Box sx={{ mt: 5, textAlign: "center" }}>
-            <a
-              href="https://www.facebook.com/dhruv.pansala?mibextid=ZbWKwL"
+
+          <Divider sx={{ my: 4, borderColor: "#444" }} />
+
+          <Box sx={{ textAlign: "center" }}>
+            <IconButton
+              color="inherit"
+              href="https://wa.me/+919409307167"
               target="_blank"
-              rel="noopener noreferrer"
             >
-              <IconButton color="inherit">
-                <Facebook color="primary" />
-              </IconButton>
-            </a>
-            <a
-              href="https://www.instagram.com/_unique_boy_211?igsh=MTJyY2UyaWVhdng5bw=="
+              <WhatsApp sx={{ color: "#3b5998" }} />
+            </IconButton>
+            <IconButton
+              color="inherit"
+              href="https://www.instagram.com/http._.sagar?igsh=M3VieWRub2p1cWM="
               target="_blank"
-              rel="noopener noreferrer"
             >
-              <IconButton color="inherit">
-                <Instagram color="secondary" />
-              </IconButton>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/dhruvil-padshala-032630270?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+              <Instagram sx={{ color: "#E4405F" }} />
+            </IconButton>
+            <IconButton
+              color="inherit"
+              href="https://www.linkedin.com/in/sagar-koshti-1b6957219/"
               target="_blank"
-              rel="noopener noreferrer"
             >
-              <IconButton color="inherit">
-                <LinkedIn color="primary" />
-              </IconButton>
-            </a>
+              <LinkedIn sx={{ color: "#0e76a8" }} />
+            </IconButton>
           </Box>
-          <Typography variant="body2" sx={{ mt: 3, textAlign: "center" }}>
-            &copy; All rights reserved.
+
+          <Typography variant="body2" sx={{ mt: 4 }}>
+            &copy; {new Date().getFullYear()} All rights reserved.
           </Typography>
-          <Box sx={{ display: "flex", justifyContent: "center", mt: 1 }}>
+
+          <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
             <MuiLink
               href="#"
               sx={linkStyle}
               onMouseEnter={handleHover}
               onMouseLeave={handleLeave}
+              mx={2}
             >
               Terms of Use
             </MuiLink>
@@ -203,6 +169,7 @@ const Footer = (link) => {
               sx={linkStyle}
               onMouseEnter={handleHover}
               onMouseLeave={handleLeave}
+              mx={2}
             >
               Privacy Policy
             </MuiLink>
