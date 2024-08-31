@@ -1,9 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Grid, TextField, Button } from "@mui/material";
+import emailjs from "emailjs-com";
 
 const ContactForm = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    phoneNumber: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    emailjs
+      .send(
+        "service_loq0cxe", // Your service ID
+        "template_m4m55hp", // Your template ID
+        formData,
+        "w7Y_fbjv2BYBMz3K0" // Replace with your actual User ID from EmailJS
+      )
+      .then((response) => {
+        console.log("Email sent successfully:", response);
+        setIsSubmitting(false);
+        // Optionally reset form fields
+        setFormData({
+          name: "",
+          phoneNumber: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      })
+      .catch((error) => {
+        console.error("Error sending email:", error);
+        setIsSubmitting(false);
+      });
+  };
+
   return (
     <Box
+      component="form"
+      onSubmit={handleSubmit}
       sx={{
         backgroundColor: "#f0f2f5",
         padding: "2rem",
@@ -23,9 +72,12 @@ const ContactForm = () => {
       >
         <Grid item xs={12}>
           <TextField
-            label=" NAME"
+            label="NAME"
             fullWidth
             variant="outlined"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
             InputLabelProps={{
               style: {
                 fontSize: "0.875rem",
@@ -44,6 +96,9 @@ const ContactForm = () => {
             label="PHONE NUMBER"
             fullWidth
             variant="outlined"
+            name="phoneNumber"
+            value={formData.phoneNumber}
+            onChange={handleChange}
             InputLabelProps={{
               style: {
                 fontSize: "0.875rem",
@@ -62,6 +117,9 @@ const ContactForm = () => {
             label="EMAIL"
             fullWidth
             variant="outlined"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
             InputLabelProps={{
               style: {
                 fontSize: "0.875rem",
@@ -80,6 +138,9 @@ const ContactForm = () => {
             label="SUBJECT"
             fullWidth
             variant="outlined"
+            name="subject"
+            value={formData.subject}
+            onChange={handleChange}
             InputLabelProps={{
               style: {
                 fontSize: "0.875rem",
@@ -100,6 +161,9 @@ const ContactForm = () => {
             variant="outlined"
             multiline
             rows={4}
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
             InputLabelProps={{
               style: {
                 fontSize: "0.875rem",
@@ -122,6 +186,7 @@ const ContactForm = () => {
         }}
       >
         <Button
+          type="submit"
           variant="contained"
           sx={{
             backgroundColor: "Blue",
@@ -134,8 +199,9 @@ const ContactForm = () => {
               backgroundColor: "#0077b5",
             },
           }}
+          disabled={isSubmitting}
         >
-          SEND MESSAGE
+          {isSubmitting ? "Sending..." : "SEND MESSAGE"}
         </Button>
       </Box>
     </Box>
