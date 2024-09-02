@@ -8,7 +8,7 @@ import {
   IconButton,
   Avatar,
 } from "@mui/material";
-import Profile from "../../assets/Home/sagar-image.jpg";
+import Profile from "../../assets/Home/contact-sagar.jpg";
 import { Whatsapp, Instagram, LinkedIn } from "../Home/index4";
 import ContactForm from "./index2";
 
