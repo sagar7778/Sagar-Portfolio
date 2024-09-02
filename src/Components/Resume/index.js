@@ -29,16 +29,9 @@ const contentData = {
     {
       title: "",
       subTitle: "Diploma",
-      subTitle1: "Information Of Technology",
+      subTitle1: "Information Technology",
       description:
-        " Explore advanced concepts in physics, chemistry, and Mathematics through interactive lessons and practical experiments. This educational journey is designed to deepen your understanding of scientific principles and prepare you for higher education and future careers in science. Engage with hands-on activities and real-world applications to solidify your knowledge and critical thinking skills.",
-    },
-    {
-      title: "",
-      subTitle: "Internship",
-      subTitle1: "Way to Web",
-      description:
-        "This course covers fundamental principles such as layout, color theory, typography, and responsive design. Gain practical experience with popular design tools and techniques to build engaging and functional web interfaces. Through interactive lessons and real-world projects, you'll develop the skills needed to craft compelling web experiences that captivate users and achieve your design goals.",
+        "Explore emerging trends in Information Technology, from cybersecurity to artificial intelligence. Gain practical experience through projects that mirror industry challenges, ensuring you're well-equipped for the evolving tech landscape. This program is designed to provide both depth and breadth in IT knowledge, empowering you to excel in a rapidly changing digital world.",
     },
   ],
   1: [
