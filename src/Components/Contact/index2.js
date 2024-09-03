@@ -1,65 +1,47 @@
 import React, { useState } from "react";
 import { Box, Grid, TextField, Button } from "@mui/material";
 import emailjs from "emailjs-com";
-
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: "",
-    phoneNumber: "",
+    phone: "",
     email: "",
     subject: "",
     message: "",
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    setFormData({ ...formData, [name]: value });
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
-
     emailjs
       .send(
-        "service_loq0cxe", // Your service ID
-        "template_m4m55hp", // Your template ID
+        "service_loq0cxe",
+        "template_m4m55hp",
         formData,
-        "w7Y_fbjv2BYBMz3K0" // Replace with your actual User ID from EmailJS
+        "w7Y_fbjv2BYBMz3K0"
       )
-      .then((response) => {
-        console.log("Email sent successfully:", response);
-        setIsSubmitting(false);
-        // Optionally reset form fields
-        setFormData({
-          name: "",
-          phoneNumber: "",
-          email: "",
-          subject: "",
-          message: "",
-        });
-      })
-      .catch((error) => {
-        console.error("Error sending email:", error);
-        setIsSubmitting(false);
-      });
+      .then(
+        (response) => {
+          console.log("SUCCESS!", response.status, response.text);
+        },
+        (error) => {
+          console.log("FAILED...", error);
+        }
+      );
   };
-
   return (
     <Box
       component="form"
       onSubmit={handleSubmit}
       sx={{
-        backgroundColor: "#f0f2f5",
-        padding: "2rem",
+        backgroundColor: "#F0F2F5",
+        padding: { xs: 2, md: 4 },
         borderRadius: 2,
         boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
-        maxWidth: { xs: "100%", md: "52%" },
-        height: { xs: "auto", md: "685px" },
+        maxWidth: { xs: "100%", md: "58%" },
+        height: { xs: "auto", md: "775px" },
         marginTop: "1.5rem",
         flexGrow: 1,
         ml: { xs: 2.5, md: 0 },
@@ -73,11 +55,11 @@ const ContactForm = () => {
         <Grid item xs={12}>
           <TextField
             label="NAME"
-            fullWidth
-            variant="outlined"
             name="name"
             value={formData.name}
             onChange={handleChange}
+            fullWidth
+            variant="outlined"
             InputLabelProps={{
               style: {
                 fontSize: "0.875rem",
@@ -94,11 +76,11 @@ const ContactForm = () => {
         <Grid item xs={12}>
           <TextField
             label="PHONE NUMBER"
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
             fullWidth
             variant="outlined"
-            name="phoneNumber"
-            value={formData.phoneNumber}
-            onChange={handleChange}
             InputLabelProps={{
               style: {
                 fontSize: "0.875rem",
@@ -115,11 +97,11 @@ const ContactForm = () => {
         <Grid item xs={12}>
           <TextField
             label="EMAIL"
-            fullWidth
-            variant="outlined"
             name="email"
             value={formData.email}
             onChange={handleChange}
+            fullWidth
+            variant="outlined"
             InputLabelProps={{
               style: {
                 fontSize: "0.875rem",
@@ -136,11 +118,11 @@ const ContactForm = () => {
         <Grid item xs={12}>
           <TextField
             label="SUBJECT"
-            fullWidth
-            variant="outlined"
             name="subject"
             value={formData.subject}
             onChange={handleChange}
+            fullWidth
+            variant="outlined"
             InputLabelProps={{
               style: {
                 fontSize: "0.875rem",
@@ -157,13 +139,13 @@ const ContactForm = () => {
         <Grid item xs={12}>
           <TextField
             label="YOUR MESSAGE"
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
             fullWidth
             variant="outlined"
             multiline
             rows={4}
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
             InputLabelProps={{
               style: {
                 fontSize: "0.875rem",
@@ -196,16 +178,14 @@ const ContactForm = () => {
             borderRadius: "50px",
             boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
             "&:hover": {
-              backgroundColor: "#0077b5",
+              backgroundColor: "#0077B5",
             },
           }}
-          disabled={isSubmitting}
         >
-          {isSubmitting ? "Sending..." : "SEND MESSAGE"}
+          SEND MESSAGE
         </Button>
       </Box>
     </Box>
   );
 };
-
 export default ContactForm;
