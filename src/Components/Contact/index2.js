@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Box, Grid, TextField, Button } from "@mui/material";
+import { Box, Grid, TextField, Button, Typography } from "@mui/material";
 import emailjs from "emailjs-com";
+
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -9,10 +10,13 @@ const ContactForm = () => {
     subject: "",
     message: "",
   });
+  const [messageSent, setMessageSent] = useState(false); // State to track message sent status
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     emailjs
@@ -25,12 +29,14 @@ const ContactForm = () => {
       .then(
         (response) => {
           console.log("SUCCESS!", response.status, response.text);
+          setMessageSent(true); // Set message sent to true on success
         },
         (error) => {
           console.log("FAILED...", error);
         }
       );
   };
+
   return (
     <Box
       component="form"
@@ -185,7 +191,20 @@ const ContactForm = () => {
           SEND MESSAGE
         </Button>
       </Box>
+      {messageSent && ( // Conditional rendering of the success message
+        <Typography
+          sx={{
+            mt: 3,
+            color: "green",
+            textAlign: "center",
+            fontWeight: "bold",
+          }}
+        >
+          Your message was sent successfully!
+        </Typography>
+      )}
     </Box>
   );
 };
+
 export default ContactForm;
